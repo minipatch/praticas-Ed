@@ -1,0 +1,2 @@
+nesse programa  estava sendo alocado 10 vezes e desacolado da 
+memoria apenas uma vez

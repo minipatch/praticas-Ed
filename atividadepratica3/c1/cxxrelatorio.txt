@@ -1,0 +1,2 @@
+nesse programa foi corrigido o sizeof onde estava alocando 10 enquanto
+o for rodava 11

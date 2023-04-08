@@ -1,0 +1,1 @@
+passei o valgrind e o gdb ainda mais que o gdb ajuda a encontrar problemas que não são alocaão e consta que não tem problemas

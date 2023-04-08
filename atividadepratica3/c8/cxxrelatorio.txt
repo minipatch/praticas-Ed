@@ -1,0 +1,1 @@
+laço fazia a interação ate quando i era 26 logo não chegava no 27 

@@ -1,0 +1,1 @@
+a string estava terminando em null logo dava problema de memoria

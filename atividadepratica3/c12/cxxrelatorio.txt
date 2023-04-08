@@ -1,0 +1,1 @@
+nesse exemplo a variavel x não recebia nada então ela podeeria receber lixo e nunca ser 0

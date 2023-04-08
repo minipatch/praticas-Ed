@@ -1,0 +1,1 @@
+toda a memoria alocada não esta sendo alocada fora qu e isso está dentro de um loop infinito

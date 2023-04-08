@@ -1,0 +1,1 @@
+aqui teve que um erro no rezise e não estava atualizando array->data

@@ -1,0 +1,104 @@
+Script started on 2023-04-05 16:15:39-03:00 [TERM="xterm-256color" TTY="/dev/pts/14" COLUMNS="162" LINES="14"]
+augustinho@augustinho:~/Ed/pa03/c11$ valgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxxcorreto.c -g[8Pdb ./a.outcc cxxcorreto.c -gvalgrind --leak-check=full ./a.out[15Pgcc cxxcorreto.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxxcorreto.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxx.c -g
+augustinho@augustinho:~/Ed/pa03/c11$ gcc cxx.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+[m--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./a.out[m...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c11/a.out 
+13770, Rolberton
+[Inferior 1 (process 13770) exited normally]
+(gdb) q
+augustinho@augustinho:~/Ed/pa03/c11$ gdb ./a.outcc cxx.c -gvalgrind --leak-check=full ./a.out
+==13774== Memcheck, a memory error detector
+==13774== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==13774== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==13774== Command: ./a.out
+==13774== 
+==13774== error calling PR_SET_PTRACER, vgdb might block
+==13774== Invalid write of size 2
+==13774==    at 0x1091B4: main (cxx.c:9)
+==13774==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==13774==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13774==    by 0x10919E: main (cxx.c:8)
+==13774== 
+==13774== Invalid read of size 1
+==13774==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13774==    by 0x48D2D14: __vfprintf_internal (vfprintf-internal.c:1688)
+==13774==    by 0x48BBD3E: printf (printf.c:33)
+==13774==    by 0x1091DF: main (cxx.c:11)
+==13774==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==13774==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13774==    by 0x10919E: main (cxx.c:8)
+==13774== 
+==13774== Invalid read of size 1
+==13774==    at 0x48E970C: _IO_new_file_xsputn (fileops.c:1219)
+==13774==    by 0x48E970C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==13774==    by 0x48D10FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==13774==    by 0x48BBD3E: printf (printf.c:33)
+==13774==    by 0x1091DF: main (cxx.c:11)
+==13774==  Address 0x4a4f048 is 0 bytes after a block of size 8 alloc'd
+==13774==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13774==    by 0x10919E: main (cxx.c:8)
+==13774== 
+==13774== Invalid read of size 1
+==13774==    at 0x48436A0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==13774==    by 0x48E9631: _IO_new_file_xsputn (fileops.c:1236)
+==13774==    by 0x48E9631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==13774==    by 0x48D10FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==13774==
+augustinho@augustinho:~/Ed/pa03/c11$ gcc cxxcorreto.c -g   
+augustinho@augustinho:~/Ed/pa03/c11$ gdb ./a.out
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c11/a.out 
+13806, Rolberton
+[Inferior 1 (process 13806) exited normally]
+(gdb) q
+augustinho@augustinho:~/Ed/pa03/c11$ valgrind --leak-check=full ./a.out
+==13810== Memcheck, a memory error detector
+==13810== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==13810== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==13810== Command: ./a.out
+==13810== 
+==13810== error calling PR_SET_PTRACER, vgdb might block
+13810, Rolberton
+==13810== 
+==13810== HEAP SUMMARY:
+==13810==     in use at exit: 0 bytes in 0 blocks
+==13810==   total heap usage: 2 allocs, 2 frees, 1,034 bytes allocated
+==13810== 
+==13810== All heap blocks were freed -- no leaks are possible
+==13810== 
+==13810== For lists of detected and suppressed errors, rerun with: -s
+==13810== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

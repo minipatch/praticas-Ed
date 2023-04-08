@@ -1,0 +1,1 @@
+memoria alocada foi apenas de 8 e fora que essa memoria não estava sendo desalocada

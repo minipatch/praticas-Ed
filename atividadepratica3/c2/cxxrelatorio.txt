@@ -1,0 +1,2 @@
+nosso problema aqui é que o for ta contando ate 0 a 10 e o vetor estar 
+alocando 10 posições

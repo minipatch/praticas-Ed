@@ -1,0 +1,109 @@
+Script started on 2023-04-05 12:55:16-03:00 [TERM="xterm-256color" TTY="/dev/pts/9" COLUMNS="162" LINES="14"]
+augustinho@augustinho:~/Ed/pa03/c6$ gcc  cxx. [Kc 
+augustinho@augustinho:~/Ed/pa03/c6$ gcc  cxx.c  -g
+augustinho@augustinho:~/Ed/pa03/c6$ gcc  cxx.c  -g[K -g[Kvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+[m--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./a.out[m...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c6/a.out 
+[Inferior 1 (process 7350) exited normally]
+(gdb) q
+augustinho@augustinho:~/Ed/pa03/c6$ gdb ./a.outcc  cxx.c  -g[Kvalgrind --leak-check=full ./a.outgdb ./a.out[K[23@valgrind --leak-check=full[C[C[C[C[C[C[C[C
+==7428== Memcheck, a memory error detector
+==7428== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7428== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==7428== Command: ./a.out
+==7428== 
+==7428== error calling PR_SET_PTRACER, vgdb might block
+==7428== Invalid free() / delete / delete[] / realloc()
+==7428==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7428==    by 0x109215: main (cxx.c:21)
+==7428==  Address 0x4a4f090 is 0 bytes inside a block of size 40 free'd
+==7428==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7428==    by 0x1091B4: resizeArray (cxx.c:12)
+==7428==    by 0x109202: main (cxx.c:19)
+==7428==  Block was alloc'd at
+==7428==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7428==    by 0x1091EC: main (cxx.c:18)
+==7428== 
+==7428== 
+==7428== HEAP SUMMARY:
+==7428==     in use at exit: 60 bytes in 1 blocks
+==7428==   total heap usage: 3 allocs, 3 frees, 116 bytes allocated
+==7428== 
+==7428== 60 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==7428==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7428==    by 0x1091B4: resizeArray (cxx.c:12)
+==7428==    by 0x109202: main (cxx.c:19)
+==7428== 
+==7428== LEAK SUMMARY:
+==7428==    definitely lost: 60 bytes in 1 blocks
+==7428==    indirectly lost: 0 bytes in 0 blocks
+==7428==      possibly lost: 0 bytes in 0 blocks
+==7428==    still reachable: 0 bytes in 0 blocks
+==7428==         suppressed: 0 bytes in 0 blocks
+==7428== 
+==7428== For lists of detected and suppressed errors, rerun with: -s
+==7428== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+augustinho@augustinho:~/Ed/pa03/c6$ gcc cxxcorreto.c[Kc -g
+augustinho@augustinho:~/Ed/pa03/c6$ gcc cxxcorreto.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for de
+augustinho@augustinho:~/Ed/pa03/c6$ gcc cxxcorreto.c -g
+augustinho@augustinho:~/Ed/pa03/c6$ gdb ./a.out
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c6/a.out 
+[Inferior 1 (process 7651) exited normally]
+(gdb) q
+augustinho@augustinho:~/Ed/pa03/c6$ valgrind --leak-check=full ./a.out
+==7678== Memcheck, a memory error detector
+==7678== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7678== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==7678== Command: ./a.out
+==7678== 
+==7678== error calling PR_SET_PTRACER, vgdb might block
+==7678== 
+==7678== HEAP SUMMARY:
+==7678==     in use at exit: 0 bytes in 0 blocks
+==7678==   total heap usage: 2 allocs, 2 frees, 56 bytes allocated
+==7678== 
+==7678== All heap blocks were freed -- no leaks are possible
+==7678== 
+==7678== For lists of detected and suppressed errors, rerun with: -s
+==7678== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

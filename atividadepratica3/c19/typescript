@@ -1,0 +1,125 @@
+Script started on 2023-04-05 19:16:11-03:00 [TERM="xterm-256color" TTY="/dev/pts/22" COLUMNS="157" LINES="14"]
+augustinho@augustinho:~/Ed/pa03/c19$ valgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxxcorreto.c -gclear[Kgcc cxxcorreto.c -g[K[K[K[K[K[K[K[K[K[K[K[K.c -g
+augustinho@augustinho:~/Ed/pa03/c19$ gcc cxx.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+[m--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./a.out[m...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c19/a.out 
+enter a number:
+15
+
+Program received signal SIGSEGV, Segmentation fault.
+[34m0x00007fffff633ae7[m in [33m__GI__IO_str_overflow[m ([36mfp[m=0x7ffffffee400, [36mc[m=115) at [32mstrops.c[m:133
+133	strops.c: No such file or directory.
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 22779] will be killed.
+
+Quit anyway? (y or n) y
+augustinho@augustinho:~/Ed/pa03/c19$ gdb ./a.outcc cxx.c -gvalgrind --leak-check=full ./a.outgdb ./a.out[K[23@valgrind --leak-check=full[C[C[C[C[C[C[C[C
+==22864== Memcheck, a memory error detector
+==22864== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22864== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==22864== Command: ./a.out
+==22864== 
+==22864== error calling PR_SET_PTRACER, vgdb might block
+enter a number:
+15
+==22864== Invalid write of size 1
+==22864==    at 0x48EDAE7: _IO_str_overflow (strops.c:133)
+==22864==    by 0x48EC023: _IO_default_xsputn (genops.c:399)
+==22864==    by 0x48EC023: _IO_default_xsputn (genops.c:370)
+==22864==    by 0x48D0971: __vfprintf_internal (vfprintf-internal.c:1373)
+==22864==    by 0x48DF0F8: __vsprintf_internal (iovsprintf.c:95)
+==22864==    by 0x48BBEC7: sprintf (sprintf.c:30)
+==22864==    by 0x10929C: printSum (cxx.c:22)
+==22864==    by 0x1092D4: main (cxx.c:28)
+==22864==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==22864== 
+==22864== 
+==22864== Process terminating with default action of signal 11 (SIGSEGV)
+==22864==  Access not within mapped region at address 0x0
+==22864==    at 0x48EDAE7: _IO_str_overflow (strops.c:133)
+==22864==    by 0x48EC023: _IO_default_xsputn (genops.c:399)
+==22864==    by 0x48EC023: _IO_default_xsputn (genops.c:370)
+==22864==    by 0x48D0971: __vfprintf_internal (vfprintf-internal.c:1373)
+==22864==    by 0x48DF0F8: __vsprintf_internal (iovsprintf.c:95)
+==22864==    by 0x48BBEC7: sprintf (sprintf.c:30)
+==22864==    by 0x10929C: printSum (cxx.c:22)
+==22864==    by 0x1092D4: main (cxx.c:28)
+==22864==  If you believe this happened as a result of a stack
+==22864==  overflow in your program's main thread (unlikely but
+==22864==  possible), you can try to increase the size of the
+==22864==  main thread stack using the --main-stacksize= flag.
+==22864==  The main thread stack size used in this run was 8388608.
+==22864== 
+==22864== HEAP SUMMARY:
+==22864==     in use at exit: 0 bytes in 0 blocks
+==22864==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==22864== 
+==22864== 
+==22864== All heap blocks were freed -- no leaks are possible
+==22864== 
+==22864== For lists of detected and suppressed errors, rerun with: -s
+==22864== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+augustinho@augustinho:~/Ed/pa03/c19$ gcc cxxcorreto.c -g
+augustinho@augustinho:~/Ed/pa03/c19$ valgrind --leak-check=full ./a.out
+==23021== Memcheck, a memory error detector
+==23021== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==23021== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==23021== Command: ./a.out
+==23021== 
+==23021== error calling PR_SET_PTRACER, vgdb might block
+enter a number:
+15
+sum=120
+==23021== 
+==23021== HEAP SUMMARY:
+==23021==     in use at exit: 0 bytes in 0 blocks
+==23021==   total heap usage: 3 allocs, 3 frees, 2,058 bytes allocated
+==23021== 
+==23021== All heap blocks were freed -- no leaks are possible
+==23021== 
+==23021== For lists of detected and suppressed errors, rerun with: -s
+==23021== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+augustinho@augustinho:~/Ed/pa03/c19$ gdb ./a.out
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c19/a.out 
+enter a number:
+15
+sum=120
+[Inferior 1 (process 23087) exited normally]
+(gdb) q

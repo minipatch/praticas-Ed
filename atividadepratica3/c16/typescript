@@ -1,0 +1,100 @@
+Script started on 2023-04-05 16:47:50-03:00 [TERM="xterm-256color" TTY="/dev/pts/20" COLUMNS="162" LINES="14"]
+augustinho@augustinho:~/Ed/pa03/c16$ valgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxxcorreto.c -g[8Pdb ./a.outcc cxxcorreto.c -g[K[K[K[K[K[K[K[K[K[K[K[K[Kx.c
+augustinho@augustinho:~/Ed/pa03/c16$ gcc cxx.cvalgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxxcorreto.c -g[8Pdb ./a.out[23@valgrind --leak-check=full[C[C[C[C[C[C[C[Cgcc cxx.c[K[Kgcc cxx.c --g[K[Kg
+augustinho@augustinho:~/Ed/pa03/c16$ gcc cxx.c -g[Kvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+[m--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./a.out[m...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c16/a.out 
+
+Program received signal SIGFPE, Arithmetic exception.
+[34m0x000000000800113b[m in [33mactual_calc[m ([36ma[m=13, [36mb[m=0) at [32mcxx.c[m:6
+6	  c=a/b;
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 17436] will be killed.
+
+Quit anyway? (y or n) y
+augustinho@augustinho:~/Ed/pa03/c16$ gdb ./a.outcc cxx.c -g[Kvalgrind --leak-check=full ./a.out
+==17497== Memcheck, a memory error detector
+==17497== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==17497== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==17497== Command: ./a.out
+==17497== 
+==17497== error calling PR_SET_PTRACER, vgdb might block
+==17497== 
+==17497== Process terminating with default action of signal 8 (SIGFPE)
+==17497==  Integer divide by zero at address 0x1002D47D6F
+==17497==    at 0x10913B: actual_calc (cxx.c:6)
+==17497==    by 0x109170: calc (cxx.c:15)
+==17497==    by 0x109189: main (cxx.c:20)
+==17497== 
+==17497== HEAP SUMMARY:
+==17497==     in use at exit: 0 bytes in 0 blocks
+==17497==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==17497== 
+==17497== All heap blocks were freed -- no leaks are possible
+==17497== 
+==17497== For lists of detected and suppressed errors, rerun with: -s
+==17497== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Floating point exception (core dumped)
+augustinho@augustinho:~/Ed/pa03/c16$ valgrind --leak-check=full ./a.outgdb ./a.out[K[23@valgrind --leak-check=full[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kclear
+[H[2J[3Jaugustinho@augustinho:~/Ed/pa03/c16$ clearvalgrind --leak-check=full ./a.outgdb ./a.out[Kcc cxx.c -g[K[K[K[K[Kcorreto.c -g
+augustinho@augustinho:~/Ed/pa03/c16$ gcc cxxcorreto.c -gclear[Kvalgrind --leak-check=full ./a.outgdb ./a.out[K
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.2-0ubuntu1~20.04.1) [m[35;1m9.2[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, I
+augustinho@augustinho:~/Ed/pa03/c16$ gcc cxxcorreto.c -g
+augustinho@augustinho:~/Ed/pa03/c16$ gdb ./a.out
+GNU gdb (Ubuntu 9.2-0ubuntu1~20.04.1) 9.2
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+--Type <RET> for more, q to quit, c to continue without paging--c
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...
+(gdb) run
+Starting program: /home/augustinho/Ed/pa03/c16/a.out 
+[Inferior 1 (process 17665) exited normally]
+(gdb) q
+augustinho@augustinho:~/Ed/pa03/c16$ valgrind --leak-check=full ./a.out
+==17690== Memcheck, a memory error detector
+==17690== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==17690== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==17690== Command: ./a.out
+==17690== 
+==17690== error calling PR_SET_PTRACER, vgdb might block
+==17690== 
+==17690== HEAP SUMMARY:
+==17690==     in use at exit: 0 bytes in 0 blocks
+==17690==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==17690== 
+==17690== All heap blocks were freed -- no leaks are possible
+==17690== 
+==17690== For lists of detected and suppressed errors, rerun with: -s
+==17690== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

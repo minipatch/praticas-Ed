@@ -1,0 +1,2 @@
+aqui foi necessario colocar um for para rodar e tirar o free(text)
+porque não esta sendo alocado nada e colocar um for'

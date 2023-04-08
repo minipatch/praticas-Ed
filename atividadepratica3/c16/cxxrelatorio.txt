@@ -1,0 +1,1 @@
+o programa não funciona pq divisão por 0 da problema ou não existe

@@ -1,0 +1,2 @@
+nesse caso é bom a gente atribuir 1 ao fatorial por causa que se ele for 0 sempre vai retonar 
+0 no fatorial
