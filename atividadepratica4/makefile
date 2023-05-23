@@ -24,5 +24,5 @@ all: $(OBJ)
 clean:
 	@rm -rf $(OBJ_FOLDER)* $(BIN_FOLDER)*
 
-run:
+run: clean all
 	@$(BIN_FOLDER)$(TARGET)
